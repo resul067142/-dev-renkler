@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<style>
+    .boskutu {
+        background-color: rgb(168, 194, 200);
+    }
+    .mavikutu {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(9, 41, 112);
+       border-radius: 100%;
+        
+    }
+    .kirmizikutu {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(114, 11, 11);
+     
+        
+    }
+    .yesilkutu {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(10, 95, 29);
+      
+        
+    }
+    .sarikutu {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(201, 215, 10);
+       
+        
+    }
+    .boskutu {
+        width: 203px;
+        height: 203px;
+    }
+    
+
+    </style>
+
+<div id="t">  
+       <p></p>
+
+    <button v-on:click="m"  id="m" class="mavikutu">MAVÝ</button> 
+    <button v-on:click="k" id="k" class="kirmizikutu" >KIRMIZI</button> <br>
+    <button v-on:click="y" id="m"  class="yesilkutu">YEÞÝL</button> 
+    <button v-on:click="s" id="m"  class="sarikutu">SARI</button> <br>
+
+    <button v-bind:class="cf()"  id="m"  class="boskutu" >{{ mesaj }}</button> <br>
+
+
+    <!--"<button v-bind:style="bgd()"  id="m"  class="boskutu" >{{ mesaj }}</button> <br>-->
+</div> 
+ 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+ new Vue({
+      el: "#t",
+      data: {         
+         mesaj: "RENK VER",
+         renk: "" },
+
+      methods: {
+        
+        m() {
+          this.mesaj = "MAVÝ";
+          this.renk = "blue";
+        },
+        k() {
+          this.mesaj = "KIRMIZI";
+          this.renk ="red" ;
+        },
+        y() {
+          this.mesaj = "YEÞÝL";
+          this.renk ="green" ;
+        },
+        s() {
+          this.mesaj = "SARI";
+          this.renk = "yellow";
+        },
+
+
+        cf(){
+
+          //  this.renk==="yellow" ? "sarikutu" : "";
+
+
+        if(this.renk==="yellow"){           
+            return "sarikutu"
+        } else {
+
+        }
+
+        if(this.renk==="blue"){
+            return "mavikutu"
+            
+        }
+
+        if(this.renk==="red"){
+            return "kirmizikutu"
+        }
+        if(this.renk==="green"){
+            return "yesilkutu"
+        }
+
+
+
+
+            
+        }
+
+        /*
+        bgd(){
+            return "background:"+this.renk
+            
+        }
+      */
+
+
+
+      },
+    });
+  </script>
+</body>
+</html>
